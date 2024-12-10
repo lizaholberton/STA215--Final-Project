@@ -17,8 +17,9 @@ library(psych)
 
 #load data
 setwd("/Users/lizaholberton/Desktop/sta215")
-raw_data <- read_csv("raw_data.csv")
-
+raw_data_2 <- read_csv("raw_data.csv")
+raw_data_2$voting_record <- as.numeric(raw_data_2$voting_record)
+raw_data <- na.omit(raw_data_2)
 ##################################################################################
 ############### Table 1: descriptive statistics    ####################   
 ##################################################################################
@@ -59,47 +60,55 @@ sd(raw_data$bills)
 table(raw_data$region)
 
 ##################################################################################
-#################### Figure 1: boxplot             ####################   
+####################   Figure 1: Box Plot    #######################################
 ##################################################################################
-table(raw_data$race)
-raw_data$gender <- as.numeric(raw_data$gender)
 
-raw_data$lngender <- log(raw_data$gender)
-boxplot(lngender ~ race, data = raw_data)
-
-anova <- aov(race ~ gender, data = raw_data)
+boxplot(bills ~ race, data = raw_data)
+# One-way ANOVA 
+anova <- aov(race ~ bills, data = raw_data)
 summary(anova)
 
 ##################################################################################
-####################   Figure 2: scatter plot             ####################   
+####################   Figure 2: Scatter Plot    ################################ 
 ##################################################################################
-raw_data$race <- as.numeric(raw_data$race)
-linear_plot <- plot(raw_data$gender, raw_data$lnrace)
-print(linear_plot)
-meany <- mean(raw_data$lnrace, na.rm = TRUE)
-meanx <- mean(raw_data$gender, na.rm = TRUE)
+hist(raw_data$bills)
+raw_data$lnbills <- log(raw_data$bills + 1)
+hist(raw_data$lnbills)
+
+################################################################################
+####################   Figure 3: Histogram   ####################################
+#################################################################################
+hist(raw_data$voting_record)
+raw_data$voting_record <- log(raw_data$voting_record)
+hist(raw_data$voting_record)
+
+#####################################################################################
+####################  Figure 4: Linear Regression Analysis  ########################
+####################################################################################
+
+plot(raw_data$lnbills, raw_data$voting_record)
+meany <- mean(raw_data$voting_record, na.rm = TRUE)
+meanx <- mean(raw_data$lnbills, na.rm = TRUE)
 abline(v = meanx, col = "black")
 abline(h = meany, col = "black")
-raw_data$lnwealth <- log(raw_data$race)
-linear_relationship <- lm(race ~ gender, data = raw_data)
+
+#t-test for the coefficients of the linear regression model 
+linear_relationship <- lm(voting_record ~ lnbills, data = raw_data)
 summary(linear_relationship)
 abline(linear_relationship, col = "red")
 
 ##################################################################################
-####################  Figure 3: residual plot                ####################   
+####################  Figure 5: Residual Plot     ###############################
 ##################################################################################
 # Plot the residuals
-
-plot(raw_data$gender, residuals(linear_relationship))
-plot(raw_data$race, residuals(linear_relationship))
+plot(raw_data$lnbills, residuals(linear_relationship))
 
 # Add a horizontal line at zero to indicate the baseline
 abline(h = 0, col = "red")
 
 
 ##################################################################################
-####################  Table 2: contingency table                ####################   
+####################  Table 2: Contingency Table     #############################   
 ##################################################################################
 table(raw_data$race, raw_data$gender)
-
 chisq.test(table(raw_data$race, raw_data$gender))
