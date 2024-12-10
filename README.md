@@ -13,4 +13,32 @@ The data used for this analysis was collected for each of the 435 representative
 
 Our data was gathered using online records from credible sources.
 # Operationalization
-In order to define how the abstract concepts of our variables will be measured and quantified in our study, we assigned numbers to each category within each qualitative variable. For example, to operationalize the concept of race, we assigned a number from 1-7 to each racial/ethnic categorty. For optimal clarity and accuracy in our analysis, we ensured that each category within its variable was mutually exclusive, which simplified both our data collection and interpretation. 
+In order to define how the abstract concepts of our variables will be measured and quantified in our study, we assigned numbers to each category within each qualitative variable. For example, to operationalize the concept of race, we assigned a number from 1-7 to each racial/ethnic categorty. For optimal clarity and accuracy in our analysis, we ensured that each category within its variable was mutually exclusive, which simplified both our data collection and interpretation. Below I have listed our operationalized variables and categories: 
+
+Gender: Male, female, or “other”. Labeled 1, 2, and 3
+
+Party: Republican, Democrat, or Independent. Labeled 1, 2, and 3
+
+Age: Recorded in years, calculated from the date of birth to age in 2022.
+
+Education: Categorized by highest degree achieved notated by a number (1-8). (No high school diploma – Doctoral Degree (e.g., Ph.D., Ed.D.))
+
+Term: Measured as the number of completed terms (two years each) in the House.
+
+Previous Job: Categorized as “Professionals” or “Non-professionals”. Was determined by our discretion.
+
+Wealth: Net worth in millions.
+
+Christian Affiliation: Whether or not they identify as Christian (0 or 1).
+
+Policy Stances (Abortion and Gun Policy):
+
+Abortion Stance: 0 - Does not support legalized abortion. 1 - Does support legalized abortion.
+
+Gun Policy: Support or opposition to gun control measures.
+
+Voting Record: Percentage of votes they participated in.
+
+Bills Passed: Count of bills introduced by the representative that successfully became law.
+
+Region: Categorized by Census-designated regions (Northeast, Midwest, South, West, Other (1-5))
